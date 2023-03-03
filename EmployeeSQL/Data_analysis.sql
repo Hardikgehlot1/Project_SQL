@@ -136,3 +136,38 @@ d.dept_no = 'd007'
 order by
 e.emp_no
 
+
+--List each employee in the Sales and Development departments, including their employee number, last name, first name, and department name.
+select
+e.emp_no,
+d.dept_name,
+d.dept_no,
+e.first_name,
+e.last_name
+
+
+from
+employees as e
+
+inner join
+dept_emp as de
+on
+e.emp_no = de.emp_no
+
+
+
+
+inner join
+departments as d
+on
+d.dept_no = de.dept_no
+
+where
+d.dept_no in ('d007','d005')
+
+order by
+e.emp_no
+
+
+--List the frequency counts, in descending order, of all the employee last names
+
