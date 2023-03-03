@@ -63,11 +63,76 @@ order by
 e.emp_no
 
 
+--List the department number for each employee along with that employee’s employee number, last name, first name, and department name.
 
 
 
+select
+e.emp_no,
+de.dept_no,
+d.dept_name,
+e.first_name||' '|| e.last_name as "Full name",
+e.first_name,
+e.last_name
+
+from
+employees as e
+
+inner join
+dept_emp as de
+on
+e.emp_no = de.emp_no
+
+inner join
+departments as d
+on
+d.dept_no = de.dept_no
+
+order by
+e.emp_no
+
+--List first name, last name, and sex of each employee whose first name is Hercules and whose last name begins with the letter B.
+
+Select
+e.first_name,
+e.last_name,
+e.sex
+
+from
+employees as e
+
+where 
+e.first_name = 'Hercules' AND e.last_name like 'B%'
+
+order by
+e.emp_no
+
+--List each employee in the Sales department, including their employee number, last name, and first name.
+
+select
+e.emp_no,
+d.dept_name,
+d.dept_no,
+e.first_name,
+e.last_name
 
 
+from
+employees as e
 
+inner join
+dept_emp as de
+on
+e.emp_no = de.emp_no
 
+inner join
+departments as d
+on
+d.dept_no = de.dept_no
+
+where
+d.dept_no = 'd007'
+
+order by
+e.emp_no
 
